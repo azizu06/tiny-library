@@ -1,8 +1,8 @@
 import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
-import type { RootLayoutProps } from "@/types";
+import type { RootProps } from "@/types";
 
-export default function Root({ children }: RootLayoutProps) {
+export default function Root({ children }: RootProps) {
   return (
     <html lang="en">
       <body>

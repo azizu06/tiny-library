@@ -1,15 +1,32 @@
-import type { CatProps } from "@/types";
+import type { CatProps, SearchProps } from "@/types";
 import books from "@/data/books.json";
-import BookCard from "@/components/BookCard";
+import BooksGrid from "@/components/BookGrid";
+import Form from "next/form";
 
-export default async function BooksInCat({ params }: CatProps) {
+type FilterProps = CatProps & SearchProps;
+
+export default async function BooksInCat({
+  params,
+  searchParams,
+}: FilterProps) {
   const { catName } = await params;
-  const filteredBooks = books.filter((book) => book.category === catName);
+  const { search } = await searchParams;
+  let filteredBooks = books.filter((book) => book.category === catName);
+  if (search)
+    filteredBooks = filteredBooks.filter((book) =>
+      book.name.toLowerCase().includes(search.toLowerCase()),
+    );
   return (
-    <div className="flex flex-wrap gap-2">
-      {filteredBooks.map((book) => (
-        <BookCard key={book.id} book={book} />
-      ))}
-    </div>
+    <main className="flex flex-col gap-2">
+      <div className="flex w-full justify-between">
+        <h1>{catName}</h1>
+        <Form action={`/books/categories/${catName}`}>
+          <label htmlFor="search">
+            <input type="text" name="search" placeholder="Search for a book" />
+          </label>
+        </Form>
+      </div>
+      <BooksGrid books={filteredBooks} />
+    </main>
   );
 }

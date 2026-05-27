@@ -21,5 +21,5 @@ export type BookProps = {
 };
 
 export type SearchProps = {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ search?: string }>;
 };

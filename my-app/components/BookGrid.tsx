@@ -6,13 +6,12 @@ type BooksGridProps = {
 
 export default function BooksGrid({ books }: BooksGridProps) {
   return (
-    <main className="flex flex-col gap-2">
-      <h1>Books</h1>
-      <div className="flex flex-wrap gap-2">
+    <section>
+      <div className="book-grid">
         {books.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}
       </div>
-    </main>
+    </section>
   );
 }

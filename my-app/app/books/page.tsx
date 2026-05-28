@@ -12,12 +12,13 @@ export default async function BooksView({ searchParams }: SearchProps) {
   }
 
   return (
-    <main className="flex flex-col gap-2">
-      <div className="flex w-full justify-between">
-        <h1>Books</h1>
+    <main className="books-content">
+      <div className="books-header">
+        <h1 className="books-title">Books</h1>
         <Form action="/books">
           <label htmlFor="query">
             <input
+              className="search-input"
               id="query"
               type="text"
               name="query"

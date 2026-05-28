@@ -6,8 +6,10 @@ export default function Root({ children }: RootProps) {
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
+        <div className="site-shell">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );

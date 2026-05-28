@@ -1,70 +1,96 @@
 import Link from "next/link";
 import Image from "next/image";
+
 export default function About() {
   return (
-    <main className="flex flex-col gap-3">
-      <div className="flex gap-2">
-        <Image src="#" alt="logo" />
-        <div className="flex flex-col gap-2">
-          <p>About</p>
-          <h2>Small</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            esse quaerat odit voluptates consequuntur numquam quia beatae
-            voluptatibus voluptate. At impedit totam cupiditate aliquam
-            recusandae soluta distinctio doloribus ad cum.
-          </p>
-          <div className="border rounded-md flex justify-center">
-            <Link href="/about/contact">Contact Us</Link>
+    <main>
+      <section className="about-hero page-section">
+        <div className="framed-image about-image">
+          <Image
+            src="/figma-assets/beach.jpg"
+            alt="Ocean shoreline"
+            width={729}
+            height={729}
+            priority
+          />
+        </div>
+        <div className="hero-copy">
+          <div className="hero-text">
+            <p className="kicker">About Tiny Library</p>
+            <h1 className="display-title">Small shelf, big impact</h1>
+            <p className="lead">
+              Tiny Library started as a simple idea: make it easier for curious
+              readers to actually find books they’ll love, not just scroll
+              endless lists. Every title here is chosen with care, not
+              algorithms.
+            </p>
           </div>
+          <Link href="/about/contact" className="figma-button">
+            Contact Us
+          </Link>
         </div>
-      </div>
-      <div className="flex gap-3">
-        <div className="flex flex-col gap-1">
-          <h2>Curated</h2>
+      </section>
+
+      <section className="feature-row">
+        <article className="feature-card">
+          <div className="feature-heading">
+            <span className="icon" aria-hidden="true">
+              ≋
+            </span>
+            <h2>Curated, not crowded</h2>
+          </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eaque
-            modi accusamus asperiores harum molestias, fugit mollitia impedit
-            aliquid obcaecati possimus ullam, quae nulla aperiam voluptatibus
-            minus. Eveniet, laboriosam accusantium!
+            Tiny Library keeps the catalogue intentionally small so every book
+            feels like a recommendation.
+          </p>
+        </article>
+        <div className="feature-divider" />
+        <article className="feature-card">
+          <div className="feature-heading">
+            <span className="icon" aria-hidden="true">
+              ⊕
+            </span>
+            <h2>Easy to browse</h2>
+          </div>
+          <p>
+            Clear categories and simple descriptions make it quick to choose
+            what you actually want to read next.
+          </p>
+        </article>
+        <div className="feature-divider" />
+        <article className="feature-card">
+          <div className="feature-heading">
+            <span className="icon" aria-hidden="true">
+              ⚐
+            </span>
+            <h2>Readers first</h2>
+          </div>
+          <p>
+            Every part of Tiny Library is designed to help you spend less time
+            searching and more time reading.
+          </p>
+        </article>
+      </section>
+
+      <section className="ethos-section">
+        <div className="ethos-card">
+          <h1>Our ethos</h1>
+          <p>
+            At Tiny Library, we believe a good book shouldn’t be hard to find.
+            Our ethos is to create a small, carefully curated space where every
+            title earns its place on the shelf and readers can trust that
+            anything they pick up is worth their time.
+          </p>
+          <div className="ethos-rule" />
+          <p>
+            Instead of overwhelming you with thousands of options, Tiny Library
+            focuses on a modest collection that feels personal and approachable.
+            We want readers to feel like they’ve stepped into a cosy, well-loved
+            library where someone has already done the hard work of sorting
+            through the noise.
           </p>
         </div>
-        <div className="flex flex-col gap-1">
-          <h2>Easy</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eaque
-            modi accusamus asperiores harum molestias, fugit mollitia impedit
-            aliquid obcaecati possimus ullam, quae nulla aperiam voluptatibus
-            minus. Eveniet, laboriosam accusantium!
-          </p>
-        </div>
-        <div className="flex flex-col gap-1">
-          <h2>Readers</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eaque
-            modi accusamus asperiores harum molestias, fugit mollitia impedit
-            aliquid obcaecati possimus ullam, quae nulla aperiam voluptatibus
-            minus. Eveniet, laboriosam accusantium!
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col gap-1">
-        <h1>Our Ethos</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga est
-          veritatis sunt dicta tempora rerum ea sint consectetur distinctio
-          obcaecati veniam, ipsum doloribus, odit sapiente? Optio iste quos
-          facilis similique!
-        </p>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A provident
-          adipisci eligendi culpa quia corrupti iusto inventore, doloribus hic
-          non, ratione modi quisquam nisi praesentium perferendis iste sequi
-          reprehenderit accusamus!
-        </p>
-      </div>
-      <Image src="#" alt="logo" className="flex justify-center" />
+      </section>
     </main>
   );
 }

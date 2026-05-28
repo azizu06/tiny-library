@@ -1,8 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400&family=Lato:wght@700&family=Nunito+Sans:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1e1e1e;
+  --muted: #606060;
+  --accent: #f77429;
+  --line: #dddddd;
+  --border: #a1a1a1;
 }
 
 @theme inline {
@@ -12,15 +17,645 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.site-shell {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.navbar {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+  min-height: 142px;
+  padding: 15px 40px 10px;
+}
+
+.navbar-logo {
+  height: 117px;
+  overflow: hidden;
+  position: relative;
+  width: 178px;
+}
+
+.navbar-logo img {
+  height: 151%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: -25.5%;
+  width: 100%;
+}
+
+.navbar-links {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: 40px;
+  justify-content: flex-end;
+}
+
+.nav-link {
+  border-bottom: 1px solid transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 1.35;
+  padding: 8px 0;
+  text-transform: uppercase;
+}
+
+.nav-link-active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.page-section {
+  padding: 40px;
+}
+
+.home-hero,
+.about-hero {
+  align-items: center;
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+
+.home-hero {
+  min-height: calc(100vh - 182px);
+}
+
+.about-hero {
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-copy {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 73px;
+  width: 600px;
+}
+
+.hero-text,
+.contact-text {
+  color: var(--foreground);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  line-height: normal;
+  width: 100%;
+}
+
+.kicker {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.about-hero .kicker,
+.contact-text .kicker {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.display-title {
+  font-family: "Lato", sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.lead {
+  font-size: 28px;
+  line-height: 1.22;
+  margin: 0;
+}
+
+.figma-button {
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #000000;
+  display: inline-flex;
+  font-size: 20px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.35;
+  min-height: 51px;
+  padding: 12px;
+  text-transform: uppercase;
+}
+
+.home-art {
+  aspect-ratio: 1;
+  background-image: url("/figma-assets/beach.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  flex: 0 0 627px;
+  overflow: hidden;
+  position: relative;
+}
+
+.home-art::after {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 51px,
+    #ffffff 51px 77px
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.framed-image {
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.framed-image img {
+  height: 116%;
+  left: -7%;
+  object-fit: cover;
+  position: absolute;
+  top: -6%;
+  width: 116%;
+}
+
+.about-image {
+  flex: 0 0 627px;
+}
+
+.books-layout {
+  display: flex;
+  gap: 80px;
+  min-height: calc(100vh - 142px);
+  padding: 40px;
+}
+
+.books-layout.detail {
+  gap: 100px;
+  justify-content: center;
+}
+
+.catbar {
+  align-items: flex-start;
+  align-self: flex-start;
+  display: flex;
+  flex: 0 0 140px;
+  flex-direction: column;
+  height: calc(100vh - 222px);
+  justify-content: center;
+  min-height: 370px;
+  position: sticky;
+  top: 182px;
+}
+
+.catbar-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 140px;
+}
+
+.cat-link {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.cat-link-active {
+  color: var(--accent);
+  padding-left: 12px;
+  position: relative;
+}
+
+.cat-link-active::before {
+  background: var(--accent);
+  content: "";
+  height: 17px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 1px;
+}
+
+.books-content {
+  flex: 1;
+  max-width: 1212px;
+}
+
+.books-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.books-title {
+  font-family: "Lato", sans-serif;
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.search-input {
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  font: 400 14px/1.35 "Nunito Sans", sans-serif;
+  padding: 10px 12px;
+  width: 220px;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.book-grid {
+  display: grid;
+  gap: 56px 47px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  position: relative;
+}
+
+.book-card {
+  border-radius: 10px;
+  color: var(--foreground);
+  display: block;
+  overflow: hidden;
+}
+
+.book-card:hover {
+  box-shadow:
+    0 20px 10px rgba(0, 0, 0, 0.09),
+    0 5px 6px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover {
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: 100%;
+}
+
+.book-card-body {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-top: 0;
+  border-radius: 0 0 9px 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 14px;
+}
+
+.book-card-title {
+  font-family: "Lato", sans-serif;
+  font-size: 21px;
+  line-height: 1.12;
+  margin: 0;
+}
+
+.book-author {
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.pill {
+  align-self: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1;
+  padding: 7px 9px;
+  text-transform: capitalize;
+}
+
+.likes {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 14px;
+  gap: 5px;
+  line-height: 1;
+}
+
+.heart {
+  font-family: system-ui, sans-serif;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.detail-content {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: 40px;
+  max-width: 1192px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.detail-cover {
+  aspect-ratio: 1;
+  flex: 1;
+  min-width: 0;
+  object-fit: cover;
+}
+
+.detail-copy {
+  display: flex;
+  flex: 0 0 450px;
+  flex-direction: column;
+  gap: 39px;
+  justify-content: center;
+}
+
+.detail-main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.detail-likes {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  font-size: 24px;
+  gap: 6px;
+}
+
+.detail-title {
+  font-family: "Lato", sans-serif;
+  font-size: 32px;
+  line-height: 1.18;
+  margin: 0;
+}
+
+.detail-author {
+  font-size: 24px;
+  margin: 0;
+}
+
+.detail-date {
+  font-size: 16px;
+  margin: 0;
+}
+
+.feature-row {
+  align-items: stretch;
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  padding: 40px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 350px;
+}
+
+.feature-heading {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+}
+
+.feature-heading h2 {
+  font-family: "Lato", sans-serif;
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.feature-card p {
+  font-size: 20px;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.feature-divider {
+  align-self: center;
+  background: var(--border);
+  height: 123px;
+  width: 1px;
+}
+
+.icon {
+  font-size: 25px;
+  line-height: 1;
+  width: 32px;
+}
+
+.ethos-section {
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.ethos-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 800px;
+}
+
+.ethos-card h1 {
+  font-family: "Lato", sans-serif;
+  font-size: 56px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.ethos-card p {
+  font-size: 28px;
+  line-height: 1.22;
+  margin: 0;
+}
+
+.ethos-rule {
+  background: var(--border);
+  height: 1px;
+  margin: 0 auto;
+  width: 245px;
+}
+
+.contact-page {
+  min-height: calc(100vh - 142px);
+  position: relative;
+}
+
+.contact-main {
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.contact-text {
+  width: 600px;
+}
+
+.contact-text ul {
+  font-size: 28px;
+  line-height: 1.22;
+  list-style: disc;
+  margin: 0;
+  padding-left: 42px;
+}
+
+.contact-text li {
+  display: list-item;
+  list-style: disc;
+}
+
+.contact-text p {
+  margin: 0;
+}
+
+.contact-email {
+  font-size: 28px;
+  line-height: 1.22;
+}
+
+.footer-logo {
+  margin: 25px auto 0;
+  width: 254px;
+}
+
+@media (max-width: 1100px) {
+  .home-hero,
+  .about-hero,
+  .detail-content {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .home-art,
+  .about-image,
+  .hero-copy,
+  .contact-text {
+    width: 100%;
+  }
+
+  .home-art,
+  .about-image {
+    flex-basis: auto;
+    max-width: 627px;
+  }
+
+  .books-layout,
+  .books-layout.detail {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .catbar {
+    flex-basis: auto;
+    justify-content: flex-start;
+  }
+
+  .catbar-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-row {
+    flex-direction: column;
+  }
+
+  .feature-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .navbar {
+    align-items: flex-start;
+    min-height: auto;
+    padding: 16px 20px;
+  }
+
+  .navbar-logo {
+    height: 78px;
+    width: 119px;
+  }
+
+  .page-section,
+  .books-layout,
+  .contact-main,
+  .ethos-section,
+  .feature-row {
+    padding: 24px;
+  }
+
+  .display-title,
+  .ethos-card h1 {
+    font-size: 40px;
+  }
+
+  .lead,
+  .ethos-card p,
+  .contact-text ul,
+  .contact-email {
+    font-size: 22px;
+  }
+
+  .home-art {
+    flex-basis: auto;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .books-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .search-input,
+  .ethos-card {
+    width: 100%;
+  }
+
+  .detail-copy {
+    flex-basis: auto;
+    width: 100%;
+  }
 }

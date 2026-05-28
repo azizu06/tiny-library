@@ -1,29 +1,28 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import NavLink from "./NavLink";
+import Link from "next/link";
 
 export default function Navbar() {
   const pathname = usePathname();
   const isContact = pathname === "/about/contact";
   return (
-    <div className="flex justify-between p-2">
-      <Link href="/">
-        <Image src="#" alt="logo" />
+    <div className="navbar">
+      <Link href="/" className="navbar-logo" aria-label="Tiny Library home">
+        <Image
+          src="/figma-assets/tinylibrary-logo.png"
+          alt="Tiny Library"
+          width={178}
+          height={117}
+          priority
+        />
       </Link>
-      <div className="flex gap-2">
-        <Link
-          href="/books"
-          className={pathname.startsWith(`/books`) ? "underline" : ""}
-        >
-          Books
-        </Link>
-        <Link
-          href="/about"
-          className={pathname.startsWith(`/about`) ? "underline" : ""}
-        >
-          {isContact ? "About:Contact" : "About"}
-        </Link>
+      <div className="navbar-links">
+        <NavLink href="/books">Books</NavLink>
+        <NavLink href="/about">
+          {isContact ? "About : Contact" : "About"}
+        </NavLink>
       </div>
     </div>
   );

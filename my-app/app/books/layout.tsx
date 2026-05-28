@@ -3,7 +3,7 @@ import Catbar from "@/components/Catbar";
 
 export default function Root({ children }: RootProps) {
   return (
-    <section className="flex gap-5">
+    <section className="books-layout">
       <Catbar />
       {children}
     </section>

@@ -1,26 +1,19 @@
-"use client";
-import Link from "next/link";
 import { getAllCategories } from "@/lib/categories";
-import { usePathname } from "next/navigation";
+import NavLink from "./NavLink";
 export default function Catbar() {
-  const pathname = usePathname();
   const categories = getAllCategories();
   return (
-    <div className="flex flex-col gap-1">
-      <Link href="/books" className={pathname === "/books" ? "underline" : ""}>
-        All
-      </Link>
-      {categories.map((cat) => (
-        <Link
-          href={`/books/categories/${cat.slug}`}
-          key={cat.id}
-          className={
-            pathname === `/books/categories/${cat.slug}` ? "underline" : ""
-          }
-        >
-          {cat.label}
-        </Link>
-      ))}
-    </div>
+    <nav className="catbar" aria-label="Book categories">
+      <div className="catbar-inner">
+        <NavLink href="/books" exact>
+          All
+        </NavLink>
+        {categories.map((cat) => (
+          <NavLink href={`/books/categories/${cat.slug}`} key={cat.id} exact>
+            {cat.label}
+          </NavLink>
+        ))}
+      </div>
+    </nav>
   );
 }

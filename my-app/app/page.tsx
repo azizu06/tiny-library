@@ -1,23 +1,23 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex gap-2">
-      <div className="flex flex-col gap-1">
-        <p>Browse</p>
-        <h1>Find your</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nostrum
-          ducimus vel officiis at natus. Harum dignissimos consequuntur rem
-          saepe, officia, impedit eaque minus ducimus repudiandae atque, quam
-          at. Ut?
-        </p>
-        <div className="border rounded-md ">
-          <Link href="/books">Browse Books</Link>
+    <main className="home-hero page-section">
+      <div className="hero-copy">
+        <div className="hero-text">
+          <p className="kicker">Browse books</p>
+          <h1 className="display-title">Find your next favourite book</h1>
+          <p className="lead">
+            Tiny Library is a cosy corner of the web where readers discover
+            hand-picked titles across every genre, from timeless classics to
+            hidden indie gems.
+          </p>
         </div>
+        <Link href="/books" className="figma-button">
+          Browse Books
+        </Link>
       </div>
-      <Image src="#" alt="home" />
+      <div className="home-art" aria-hidden="true" />
     </main>
   );
 }

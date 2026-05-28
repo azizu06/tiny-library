@@ -12,8 +12,25 @@ export type Book = {
   dateAdded: string;
 };
 
+export type BookCategorySlug =
+  | "fiction"
+  | "non-fiction"
+  | "romance"
+  | "fantasy"
+  | "thriller"
+  | "horror"
+  | "historical"
+  | "biography"
+  | "self-help";
+
+export type Category = {
+  id: number;
+  slug: BookCategorySlug;
+  label: string;
+};
+
 export type CatProps = {
-  params: Promise<{ catName: string }>;
+  params: Promise<{ catName: BookCategorySlug }>;
 };
 
 export type BookProps = {
@@ -21,5 +38,5 @@ export type BookProps = {
 };
 
 export type SearchProps = {
-  searchParams: Promise<{ search?: string }>;
+  searchParams: Promise<{ query?: string }>;
 };

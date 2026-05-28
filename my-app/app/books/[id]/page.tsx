@@ -1,11 +1,11 @@
 import type { BookProps } from "@/types";
-import books from "@/data/books.json";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getBookById } from "@/lib/books";
 
 export default async function BookPage({ params }: BookProps) {
   const { id } = await params;
-  const curBook = books.find((book) => book.id.toString() === id);
+  const curBook = getBookById(id);
   if (!curBook) notFound();
   return (
     <div className="flex gap-2">

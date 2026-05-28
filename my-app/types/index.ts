@@ -29,8 +29,8 @@ export type Category = {
   label: string;
 };
 
-export type CatProps = {
-  params: Promise<{ catName: BookCategorySlug }>;
+export type CategoryPageProps = {
+  params: Promise<{ categoryName: BookCategorySlug }>;
 };
 
 export type BookProps = {
@@ -39,4 +39,10 @@ export type BookProps = {
 
 export type SearchProps = {
   searchParams: Promise<{ query?: string }>;
+};
+
+export type NavLinkProps = {
+  href: string;
+  children: React.ReactNode;
+  exact?: boolean;
 };
